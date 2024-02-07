@@ -38,3 +38,63 @@ btn.onclick = function () {
         behavior: "smooth",
     })
 }
+
+
+
+
+
+
+
+let darkModeTheme = document.querySelector(".theme-switch__checkbox")
+let darkMode = document.querySelector("button.btn-dark")
+let darkModeI = document.querySelector("button.btn-dark i")
+
+function darkModeFunction() {
+    let body = document.body;
+    body.classList.toggle("dark");
+
+    let theme;
+
+    if(body.classList.contains("dark")) {
+        theme = "DARK";
+        // darkModeI.classList.replace("bx-moon", "bx-sun")
+        document.querySelector(".theme-switch__checkbox").checked = true
+    }else {
+        theme = "LIGHT";
+        // darkModeI.classList.replace("bx-sun", "bx-moon");
+        document.querySelector(".theme-switch__checkbox").checked = false
+    }
+    localStorage.setItem("pageTheme", theme)
+}
+
+let getTheme = localStorage.getItem("pageTheme");
+
+if(getTheme == "DARK") {
+    document.body.classList = "dark";
+    // darkModeI.classList.replace("bx-moon", "bx-sun");
+    document.querySelector(".theme-switch__checkbox").checked = true
+
+}
+let btnDarkModeIcon = document.querySelector(".dark-mode-icon")
+let mainDarkMode = document.querySelector(".dark-mode")
+
+btnDarkModeIcon.addEventListener("click", () => {
+    mainDarkMode.classList.toggle("active")
+})
+
+
+
+
+
+
+
+let video = document.querySelector(".video")
+function openVideo() {
+  video.classList.add("videoClicked")
+  document.body.style.setProperty("overflow", "hidden")
+}
+function closeVideo() {
+  video.classList.remove("videoClicked")
+  document.body.style.removeProperty("overflow")
+}
+
